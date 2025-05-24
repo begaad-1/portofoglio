@@ -18,7 +18,7 @@
         html, body {
             height: 100%;
             width: 100%;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         body {
@@ -26,7 +26,8 @@
             justify-content: center;
             align-items: center;
             background: white;
-            position: relative;
+            position: absolute;
+            min-height: 100vh;
         }
 
         .background-top {
@@ -71,11 +72,155 @@
         .bubble-3 { width: 70px; height: 70px; top: 20%; left: 45%; animation: float 7s ease-in-out infinite; }
         .bubble-4 { width: 50px; height: 50px; top: 40%; left: 60%; animation: float 10s ease-in-out infinite; }
         .bubble-5 { width: 90px; height: 90px; top: 10%; left: 75%; animation: float 8.5s ease-in-out infinite; }
-        .bubble-6 { width: 65px; height: 65px; top: 30%; left: 85%; animation: float 7.5s ease-in-out infinite; }
-        .bubble-7 { width: 55px; height: 55px; top: 50%; left: 5%; animation: float 9.5s ease-in-out infinite; }
-        .bubble-8 { width: 75px; height: 75px; top: 60%; left: 30%; animation: float 8.2s ease-in-out infinite; }
-        .bubble-9 { width: 85px; height: 85px; top: 45%; left: 70%; animation: float 7.8s ease-in-out infinite; }
-        .bubble-10 { width: 45px; height: 45px; top: 55%; left: 90%; animation: float 9.2s ease-in-out infinite; }
+
+        .profile-card {
+            width: 400px;
+            max-width: 90%;
+            margin: 20px auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-content {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #FF4286;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .no-image {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .profile-name {
+            font-family: 'Merienda', cursive;
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .profile-title {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .profile-location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #FF4286;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .avatar-upload {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .upload-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(90deg, #FF4286 0%, #FD7F78 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logout-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: 2px solid #FF4286;
+            border-radius: 10px;
+            background: transparent;
+            color: #FF4286;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: #FF4286;
+            color: white;
+        }
+
+        .loading {
+            text-align: center;
+            color: #666;
+            padding: 20px;
+        }
+
+        #errorMessage {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            background-color: #ffe6e6;
+            color: #d63031;
+            border: 1px solid #fab1a0;
+        }
 
         .top-buttons {
             position: fixed;
@@ -106,167 +251,21 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .profile-card {
-            width: 400px;
-            max-width: 90%;
-            margin: 20px auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .card-content {
-            background-color: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            position: relative;
-            padding-top: 100px;
-        }
-
-        .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto;
-            position: absolute;
-            top: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 5px solid white;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            background: #f5f5f5;
-        }
-
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .profile-info {
-            text-align: center;
-        }
-
-        .profile-name {
-            font-family: 'Merienda', cursive;
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .profile-location {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .profile-title {
-            font-family: 'Merienda', cursive;
-            color: #FF4286;
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 20px 0;
-            padding: 20px 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 20px;
-            font-weight: 700;
-            color: #333;
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-        }
-
-        .logout-btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(90deg, #FF4286 0%, #FD7F78 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .logout-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .loading {
-            text-align: center;
-            padding: 20px;
-            color: #666;
-        }
-
-        .error-message {
-            background-color: #ffe6e6;
-            color: #d63031;
-            border: 1px solid #fab1a0;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            text-align: center;
-        }
-
         @media (max-width: 480px) {
-            .profile-card {
-                width: 95%;
-                margin: 10px;
-            }
-            
-            .stats {
-                gap: 20px;
-            }
-            
-            .profile-name {
-                font-size: 20px;
-            }
-            
-            .profile-title {
-                font-size: 16px;
+            .top-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
     <div class="background-top"></div>
-    <div class="bubble-pattern">
-        <div class="bubble bubble-1"></div>
-        <div class="bubble bubble-2"></div>
-        <div class="bubble bubble-3"></div>
-        <div class="bubble bubble-4"></div>
-        <div class="bubble bubble-5"></div>
-        <div class="bubble bubble-6"></div>
-        <div class="bubble bubble-7"></div>
-        <div class="bubble bubble-8"></div>
-        <div class="bubble bubble-9"></div>
-        <div class="bubble bubble-10"></div>
-    </div>
+    <div class="bubble-pattern"></div>
 
     <div class="top-buttons">
-        <a href="login.html" class="top-button">Login</a>
-        <a href="signup.html" class="top-button">Sign Up</a>
+        <a href="./login.html" class="top-button">Login</a>
+        <a href="./signup.html" class="top-button">Sign Up</a>
     </div>
 
     <div class="profile-card">
@@ -274,8 +273,10 @@
         <div id="content" style="display: none;">
             <div id="errorMessage" style="display: none;"></div>
             <div class="card-content">
-                <div id="profileInfo">
-                    <!-- Profile information will be inserted here -->
+                <div id="profileInfo"></div>
+                <div class="avatar-upload">
+                    <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                    <button class="upload-btn" onclick="document.getElementById('avatarInput').click()">Upload Profile Picture</button>
                 </div>
                 <button class="logout-btn" onclick="handleLogout()">Logout</button>
             </div>
@@ -284,27 +285,55 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        const supabaseUrl = 'https://ohmbzpybtemmgugenduw.supabase.co';
-        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9obWJ6cHlidGVtbWd1Z2VuZHV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgwOTE4NDEsImV4cCI6MjA2MzY2Nzg0MX0.3gr758j7BnLkpt1ym7idNdCe7KPIeT8v4LshfjPWa3o';
-        const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+        const supabase = window.supabase.createClient(
+            'https://ohmbzpybtemmgugenduw.supabase.co',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9obWJ6cHlidGVtbWd1Z2VuZHV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgwOTE4NDEsImV4cCI6MjA2MzY2Nzg0MX0.3gr758j7BnLkpt1ym7idNdCe7KPIeT8v4LshfjPWa3o'
+        );
 
-        // Check if user is logged in
-        async function checkAuth() {
+        async function getSession() {
             const { data: { session } } = await supabase.auth.getSession();
-            if (!session) {
-                window.location.href = 'login.html';
-                return;
-            }
+            if (!session) window.location.href = 'login.html';
             return session;
         }
 
-        // Load profile data
+        async function uploadAvatar(file) {
+            try {
+                const session = await getSession();
+                
+                // Show preview immediately
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const profileImage = document.querySelector('.profile-image');
+                    profileImage.innerHTML = `<img src="${e.target.result}" alt="Profile Picture">`;
+                };
+                reader.readAsDataURL(file);
+
+                // Upload to Supabase
+                const ext = file.name.split('.').pop();
+                const fileName = `${Math.random().toString(36).substring(2)}.${ext}`;
+                const filePath = `avatars/${session.user.id}/${fileName}`;
+
+                const { error: uploadError } = await supabase.storage
+                    .from('avatars')
+                    .upload(filePath, file);
+
+                if (uploadError) throw uploadError;
+
+                const { error: updateError } = await supabase
+                    .from('profiles')
+                    .update({ avatar_url: filePath })
+                    .eq('id', session.user.id);
+
+                if (updateError) throw updateError;
+
+            } catch (error) {
+                showError('Error uploading avatar');
+            }
+        }
+
         async function loadProfile() {
             try {
-                const session = await checkAuth();
-                if (!session) return;
-
-                // Get profile data
+                const session = await getSession();
                 const { data: profile, error } = await supabase
                     .from('profiles')
                     .select('*')
@@ -313,60 +342,68 @@
 
                 if (error) throw error;
 
-                // Get avatar URL
-                let avatarUrl = profile.avatar_url;
-                if (avatarUrl && !avatarUrl.startsWith('http')) {
-                    avatarUrl = `${supabaseUrl}/storage/v1/object/public/${avatarUrl}`;
-                } else if (!avatarUrl) {
-                    avatarUrl = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(profile.full_name || profile.email)}`;
+                let avatarUrl = null;
+                if (profile.avatar_url) {
+                    const { data } = supabase.storage.from('avatars').getPublicUrl(profile.avatar_url);
+                    avatarUrl = data.publicUrl;
                 }
 
-                // Show profile content
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
                 document.getElementById('profileInfo').innerHTML = `
-                    <div class="profile-image">
-                        <img src="${avatarUrl}" alt="Profile Picture" onerror="this.src='https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(profile.full_name || 'User')}'">
+                    <div class="profile-header">
+                        <div class="profile-image">
+                            ${avatarUrl ? `<img src="${avatarUrl}" alt="Profile Picture">` : '<div class="no-image">No Image</div>'}
+                        </div>
+                        <div class="profile-main-info">
+                            <h2 class="profile-name">${profile.full_name || 'Anonymous User'}</h2>
+                            <p class="profile-title">${profile.professional_title || 'Title not set'}</p>
+                        </div>
                     </div>
-                    <div class="profile-info">
-                        <h2 class="profile-name">${profile.full_name || 'Anonymous User'}</h2>
-                        <p class="profile-location">📍 ${profile.location || 'Location not set'}</p>
-                        <p class="profile-title">💼 ${profile.professional_title || 'Title not set'}</p>
-                        <div class="stats">
+                    <div class="profile-details">
+                        <p class="profile-location"><i class="location-icon">📍</i>${profile.location || 'Location not set'}</p>
+                        <div class="stats-container">
                             <div class="stat-item">
-                                <div class="stat-value">2</div>
-                                <div class="stat-label">Posts</div>
+                                <span class="stat-value">2</span>
+                                <span class="stat-label">Posts</span>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-value">9999</div>
-                                <div class="stat-label">Followers</div>
+                                <span class="stat-value">9999</span>
+                                <span class="stat-label">Followers</span>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-value">1</div>
-                                <div class="stat-label">Following</div>
+                                <span class="stat-value">1</span>
+                                <span class="stat-label">Following</span>
                             </div>
                         </div>
                     </div>
                 `;
             } catch (error) {
                 document.getElementById('loading').style.display = 'none';
-                document.getElementById('errorMessage').textContent = error.message;
-                document.getElementById('errorMessage').style.display = 'block';
+                showError(error.message);
             }
         }
 
-        // Handle logout
+        function showError(message) {
+            const msg = document.getElementById('errorMessage');
+            msg.textContent = message;
+            msg.style.display = 'block';
+        }
+
         async function handleLogout() {
             try {
                 await supabase.auth.signOut();
                 window.location.href = 'login.html';
             } catch (error) {
-                document.getElementById('errorMessage').textContent = 'Error signing out';
-                document.getElementById('errorMessage').style.display = 'block';
+                showError('Error signing out');
             }
         }
 
-        // Load profile on page load
+        document.getElementById('avatarInput').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) uploadAvatar(file);
+        });
+
         window.addEventListener('load', loadProfile);
     </script>
 </body>
