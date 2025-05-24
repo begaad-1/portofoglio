@@ -60,20 +60,33 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            0% { 
+                transform: translate(0, 0) rotate(0deg); 
+            }
+            25% { 
+                transform: translate(10px, -20px) rotate(5deg); 
+            }
+            50% { 
+                transform: translate(-5px, -30px) rotate(-5deg); 
+            }
+            75% { 
+                transform: translate(-15px, -10px) rotate(3deg); 
+            }
+            100% { 
+                transform: translate(0, 0) rotate(0deg); 
+            }
         }
 
-        .bubble-1 { width: 80px; height: 80px; top: 15%; left: 10%; animation-delay: 0s; }
-        .bubble-2 { width: 60px; height: 60px; top: 35%; left: 25%; animation-delay: 1s; }
-        .bubble-3 { width: 70px; height: 70px; top: 20%; left: 45%; animation-delay: 2s; }
-        .bubble-4 { width: 50px; height: 50px; top: 40%; left: 60%; animation-delay: 3s; }
-        .bubble-5 { width: 90px; height: 90px; top: 10%; left: 75%; animation-delay: 4s; }
-        .bubble-6 { width: 65px; height: 65px; top: 30%; left: 85%; animation-delay: 0.5s; }
-        .bubble-7 { width: 55px; height: 55px; top: 50%; left: 5%; animation-delay: 1.5s; }
-        .bubble-8 { width: 75px; height: 75px; top: 60%; left: 30%; animation-delay: 2.5s; }
-        .bubble-9 { width: 85px; height: 85px; top: 45%; left: 70%; animation-delay: 3.5s; }
-        .bubble-10 { width: 45px; height: 45px; top: 55%; left: 90%; animation-delay: 4.5s; }
+        .bubble-1 { width: 80px; height: 80px; top: 15%; left: 10%; animation: float 8s ease-in-out infinite; }
+        .bubble-2 { width: 60px; height: 60px; top: 35%; left: 25%; animation: float 9s ease-in-out infinite; }
+        .bubble-3 { width: 70px; height: 70px; top: 20%; left: 45%; animation: float 7s ease-in-out infinite; }
+        .bubble-4 { width: 50px; height: 50px; top: 40%; left: 60%; animation: float 10s ease-in-out infinite; }
+        .bubble-5 { width: 90px; height: 90px; top: 10%; left: 75%; animation: float 8.5s ease-in-out infinite; }
+        .bubble-6 { width: 65px; height: 65px; top: 30%; left: 85%; animation: float 7.5s ease-in-out infinite; }
+        .bubble-7 { width: 55px; height: 55px; top: 50%; left: 5%; animation: float 9.5s ease-in-out infinite; }
+        .bubble-8 { width: 75px; height: 75px; top: 60%; left: 30%; animation: float 8.2s ease-in-out infinite; }
+        .bubble-9 { width: 85px; height: 85px; top: 45%; left: 70%; animation: float 7.8s ease-in-out infinite; }
+        .bubble-10 { width: 45px; height: 45px; top: 55%; left: 90%; animation: float 9.2s ease-in-out infinite; }
 
         .signup-card {
             width: 500px;
@@ -208,36 +221,80 @@
             margin-top: 25px;
             padding-top: 20px;
             border-top: 1px solid #f0f0f0;
+            color: #666;
+            font-weight: 500;
+            font-size: 15px;
+            display: block;
         }
 
-        .form-link {
+        .form-footer p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-footer .form-link {
             color: #FF4286;
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-left: 5px;
         }
-        .upload-label {
-    display: inline-block;
-    background: #FF4286;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 600;
-    text-align: center;
-    transition: background 0.3s ease;
-}
 
-.upload-label:hover {
-    background: #FD7F78;
-}
-
-.hidden-input {
-    display: none;
-}
-        .form-link:hover {
+        .form-footer .form-link:hover {
             color: #FD7F78;
-            text-decoration: underline;
+            transform: translateY(-1px);
+        }
+
+        .top-buttons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .top-button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(90deg, #FF4286 0%, #FD7F78 100%);
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .top-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .upload-label {
+            display: inline-block;
+            background: linear-gradient(90deg, #FF4286 0%, #FD7F78 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .upload-label:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 66, 134, 0.3);
+        }
+
+        .hidden-input {
+            display: none;
         }
 
         .terms-text {
@@ -369,6 +426,26 @@
                 margin: 20px auto;
             }
         }
+
+        .account-text {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .account-text a {
+            color: #FF4286;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .account-text a:hover {
+            color: #FD7F78;
+        }
     </style>
 </head>
 <body>
@@ -384,6 +461,11 @@
         <div class="bubble bubble-8"></div>
         <div class="bubble bubble-9"></div>
         <div class="bubble bubble-10"></div>
+    </div>
+
+    <div class="top-buttons">
+        <a href="login.html" class="top-button">Login</a>
+        <a href="signup.html" class="top-button">Sign Up</a>
     </div>
 
     <div class="signup-card">
@@ -417,14 +499,17 @@
                     <label class="form-label" for="location">Location</label>
                     <input type="text" id="location" class="form-input" placeholder="City, Country" required>
                 </div>
+
                 <div class="form-group">
                     <label class="form-label" for="username">Username</label>
-                    <input type="text" id="username" class="form-input" placeholder="Begaad" required>
+                    <input type="text" id="username" class="form-input" placeholder="johndoe" required>
                 </div>
+
                 <div class="form-group">
                     <label class="form-label" for="phonenumber">Phone number</label>
-                    <input type="text" id="phonenumber" class="form-input" placeholder="20+1006763882" required>
+                    <input type="text" id="phonenumber" class="form-input" placeholder="+1234567890" required>
                 </div>
+
                 <div class="form-group">
                     <label class="form-label" for="avatar">Avatar</label>
                     <label for="avatar" class="upload-label">
@@ -432,9 +517,10 @@
                     </label>
                     <input type="file" id="avatar" class="form-input hidden-input" accept="image/*" required>
                 </div>
+
                 <div class="form-group">
                     <label class="form-label" for="title">Professional Title</label>
-                    <input type="text" id="title" class="form-input" placeholder="e.g., Game Developer" required>
+                    <input type="text" id="title" class="form-input" placeholder="e.g., Software Developer" required>
                 </div>
 
                 <div class="form-row">
@@ -450,151 +536,164 @@
 
                 <button type="submit" class="signup-button" id="signupBtn">Create Account</button>
                 
+                <div class="account-text">
+                    <p>Already have an account? <a href="login.html">Sign in</a></p>
+                </div>
+
                 <div class="terms-text">
                     By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
                 </div>
             </form>
-
-            <div class="form-footer">
-                <p>Already have an account? <a href="login.html" class="form-link">Sign in here</a></p>
-            </div>
         </div>
     </div>
 
-    
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        document.getElementById('avatar').addEventListener('change', function () {
-        const fileName = this.files[0]?.name || 'Choose a file';
-        document.getElementById('avatarText').textContent = fileName;
-    });
-        const SUPABASE_URL = 'https://xalggzceozwhhdtdqyxd.supabase.co'
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhhbGdnemNlb3p3aGhkdGRxeXhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc5Nzg4NTEsImV4cCI6MjA2MzU1NDg1MX0.QPg2aE8_VzOBHU0SMOkMm4L_RzGfBLv7iUzrSMsJuTY'
-        
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+        const supabaseUrl = 'https://ohmbzpybtemmgugenduw.supabase.co';
+        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9obWJ6cHlidGVtbWd1Z2VuZHV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgwOTE4NDEsImV4cCI6MjA2MzY2Nzg0MX0.3gr758j7BnLkpt1ym7idNdCe7KPIeT8v4LshfjPWa3o';
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
 
-       
-        window.addEventListener('load', async () => {
-            const { data: { session } } = await supabase.auth.getSession()
-            if (session) {
-                window.location.href = 'profile.html'
+        // Simple message display function
+        function showMessage(message, type = 'error') {
+            const existingMessage = document.querySelector('.message');
+            if (existingMessage) {
+                existingMessage.remove();
             }
-        })
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}-message`;
+            messageDiv.textContent = message;
+            
+            const form = document.getElementById('signupForm');
+            form.appendChild(messageDiv);
+        }
 
-       
+        // Handle form submission
         document.getElementById('signupForm').addEventListener('submit', async function(e) {
-            e.preventDefault()
+            e.preventDefault();
             
-            const firstName = document.getElementById('firstName').value
-            const lastName = document.getElementById('lastName').value
-            const email = document.getElementById('email').value
-            const location = document.getElementById('location').value
-            const title = document.getElementById('title').value
-            const password = document.getElementById('password').value
-            const confirmPassword = document.getElementById('confirmPassword').value
-            const signupBtn = document.getElementById('signupBtn')
-            
-          
+            // Get form values
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const location = document.getElementById('location').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const title = document.getElementById('title').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const avatarFile = document.getElementById('avatar').files[0];
+            const signupBtn = document.getElementById('signupBtn');
+
+            // Basic validation
+            if (!firstName || !lastName || !email || !location || !username || !title || !password || !confirmPassword) {
+                showMessage('Please fill in all fields');
+                return;
+            }
+
             if (password !== confirmPassword) {
-                showMessage('Passwords do not match', 'error')
-                return
+                showMessage('Passwords do not match');
+                return;
             }
 
-
-            if (password.length < 6) {
-                showMessage('Password must be at least 6 characters long', 'error')
-                return
-            }
-            
-           
-            signupBtn.disabled = true
-            signupBtn.innerHTML = '<span class="loading"></span>Creating Account...'
-            
             try {
-               
-                const { data: authData, error: authError } = await supabase.auth.signUp({
+                signupBtn.disabled = true;
+                signupBtn.innerHTML = '<span class="loading"></span>Creating Account...';
+
+                // 1. Create auth user
+                const { data: authData, error: signUpError } = await supabase.auth.signUp({
                     email: email,
-                    password: password,
-                    options: {
-                        data: {
-                            first_name: firstName,
-                            last_name: lastName,
-                            location: location,
-                            professional_title: title,
-                            full_name: `${firstName} ${lastName}`
-                        }
+                    password: password
+                });
+
+                if (signUpError) throw signUpError;
+
+                // 2. Wait a moment for auth to complete
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // 3. Upload avatar if exists
+                let avatarUrl = null;
+                if (avatarFile) {
+                    const fileExt = avatarFile.name.split('.').pop();
+                    const fileName = `${Math.random().toString(36).substring(7)}.${fileExt}`;
+                    const filePath = `avatars/${fileName}`;
+
+                    const { error: uploadError } = await supabase.storage
+                        .from('avatars')
+                        .upload(filePath, avatarFile);
+
+                    if (uploadError) {
+                        console.error('Avatar upload error:', uploadError);
+                        throw new Error('Failed to upload avatar');
                     }
-                })
 
-                if (authError) {
-                    throw authError
+                    avatarUrl = filePath;
                 }
 
-            
-                if (authData.user) {
-                    const { error: profileError } = await supabase
-                        .from('profiles')
-                        .insert([
-                            {
-                                id: authData.user.id,
-                                first_name: firstName,
-                                last_name: lastName,
-                                email: email,
-                                location: location,
-                                professional_title: title,
-                                full_name: `${firstName} ${lastName}`,
-                                created_at: new Date().toISOString()
-                            }
-                        ])
+                // 4. Create or update profile with all information
+                const profileData = {
+                    id: authData.user.id,
+                    email: email,
+                    full_name: `${firstName} ${lastName}`,
+                    username: username,
+                    location: location,
+                    professional_title: title,
+                    avatar_url: avatarUrl,
+                    updated_at: new Date().toISOString()
+                };
 
-                    
-                    if (profileError) {
-                        console.warn('Profile creation failed:', profileError)
-                    }
+                const { error: upsertError } = await supabase
+                    .from('profiles')
+                    .upsert(profileData, {
+                        onConflict: 'id',
+                        returning: 'minimal'
+                    });
+
+                if (upsertError) {
+                    console.error('Profile upsert error:', upsertError);
+                    throw new Error('Failed to create profile');
                 }
 
-                
-                if (authData.user && !authData.user.email_confirmed_at) {
-                    showMessage('Account created! Please check your email to confirm your account.', 'success')
-                } else {
-                    showMessage('Account created successfully!', 'success')
-                    setTimeout(() => {
-                        window.location.href = 'profile.html'
-                    }, 2000)
+                // 5. Verify the profile was created correctly
+                const { data: profile, error: verifyError } = await supabase
+                    .from('profiles')
+                    .select('*')
+                    .eq('id', authData.user.id)
+                    .single();
+
+                if (verifyError || !profile) {
+                    console.error('Profile verification error:', verifyError);
+                    throw new Error('Failed to verify profile creation');
                 }
+
+                // Verify location and title were saved
+                if (profile.location !== location || profile.professional_title !== title) {
+                    console.error('Profile data mismatch:', {
+                        expected: { location, title },
+                        received: { location: profile.location, title: profile.professional_title }
+                    });
+                    throw new Error('Profile data was not saved correctly');
+                }
+
+                // 6. Show success and redirect
+                showMessage('Account created successfully! Redirecting...', 'success');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
 
             } catch (error) {
-                showMessage(error.message, 'error')
+                console.error('Error:', error);
+                showMessage(error.message);
             } finally {
-                
-                signupBtn.disabled = false
-                signupBtn.innerHTML = 'Create Account'
+                signupBtn.disabled = false;
+                signupBtn.innerHTML = 'Create Account';
             }
-        })
+        });
 
-        function showMessage(message, type) {
-            
-            const existingMessage = document.querySelector('.message')
-            if (existingMessage) {
-                existingMessage.remove()
-            }
-            
-            
-            const messageDiv = document.createElement('div')
-            messageDiv.className = `message ${type}-message`
-            messageDiv.textContent = message
-            
-           
-            const form = document.getElementById('signupForm')
-            form.appendChild(messageDiv)
-            
-           
-            setTimeout(() => {
-                if (messageDiv) {
-                    messageDiv.remove()
-                }
-            }, 5000)
-        }
+        // Update file input display
+        document.getElementById('avatar').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name || 'Choose a file';
+            document.getElementById('avatarText').textContent = fileName;
+        });
     </script>
 </body>
 </html>
